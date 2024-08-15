@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,10 +24,71 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .animate-rotate {
+    animation: animate-rotate 2s linear infinite;
+  }
+
+  @keyframes animate-rotate {
+    100% {
+      transform: rotate(-225deg);
+    }
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.animated-border-rotate {
+  position: relative;
+}
+
+.animated-border-rotate::after, .animated-border-rotate::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 106%;
+  width: 106%;
+  background: conic-gradient(from var(--angle) , transparent 65%, red , violet , blue);
+  border-radius: 10px;
+  translate: -50% -50%;
+  z-index: 1;
+  padding: 3px;
+  animation: rotate 2s linear 0ms infinite;
+}
+
+.animated-border-rotate::before {
+  filter: blur(1.5rem);
+  opacity: .5;
+}
+
+.animated-border-rotate:hover::after , .animated-border-rotate:hover::before {
+  background: conic-gradient(from var(--angle) ,transparent 65%, red , violet , blue);
+}
+
+.animated-border-rotate:active::after , .animated-border-rotate:active::before {
+  background: conic-gradient(from var(--angle) ,rgb(202 138 4) 65%, red , violet , blue);
+}
+
+@keyframes rotate {
+  from {
+      --angle:0deg;
+  } to {
+      --angle:360deg;
   }
 }
