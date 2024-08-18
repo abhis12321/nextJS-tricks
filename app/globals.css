@@ -39,56 +39,55 @@ body {
       transform: rotate(-225deg);
     }
   }
-}
 
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  .animated-border-rotate {
+    position: relative;
+  }
+
+  .animated-border-rotate::after,
+  .animated-border-rotate::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: calc(100% + 5px);
+    width: calc(100% + 5px);
+    background: conic-gradient(
+      from var(--angle),
+      transparent 65%,
+      red,
+      violet,
+      blue
+    );
+    border-radius: 10px;
+    translate: -50% -50%;
+    z-index: 1;
+    padding: 3px;
+    animation: rotate 2s linear 0ms infinite;
+  }
+
+  .animated-border-rotate::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+
+  @keyframes rotate {
+    from {
+      --angle: 0deg;
+    }
+    to {
+      --angle: 360deg;
+    }
+  }
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-.animated-border-rotate {
-  position: relative;
-}
-
-.animated-border-rotate::after, .animated-border-rotate::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 106%;
-  width: 106%;
-  background: conic-gradient(from var(--angle) , transparent 65%, red , violet , blue);
-  border-radius: 10px;
-  translate: -50% -50%;
-  z-index: 1;
-  padding: 3px;
-  animation: rotate 2s linear 0ms infinite;
-}
-
-.animated-border-rotate::before {
-  filter: blur(1.5rem);
-  opacity: .5;
-}
-
-.animated-border-rotate:hover::after , .animated-border-rotate:hover::before {
-  background: conic-gradient(from var(--angle) ,transparent 65%, red , violet , blue);
-}
-
-.animated-border-rotate:active::after , .animated-border-rotate:active::before {
-  background: conic-gradient(from var(--angle) ,rgb(202 138 4) 65%, red , violet , blue);
-}
-
-@keyframes rotate {
-  from {
-      --angle:0deg;
-  } to {
-      --angle:360deg;
-  }
 }

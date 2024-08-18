@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Animated_Border() {
+export default function Animated_Border_1() {
   return (
     <div className="rounded hover:delay-[1250ms] hover:shadow-[0_0_30px_white] active:shadow-[0_0_30px_red]">
       <div className="rounded hover:delay-[1250ms] hover:shadow-[0_0_20px_white] active:shadow-[0_0_20px_red]">
