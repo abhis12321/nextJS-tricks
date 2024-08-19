@@ -91,3 +91,62 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.list {
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  gap: 1px;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.list img {
+  width: 120px;
+  height: 180px;
+  transition: .7s;
+  filter: brightness(0.03);
+  border-radius: 10px;
+  border: 1px solid red;
+}
+
+.list img:hover {
+  filter: brightness(1);
+  transform: translateZ(200px);
+}
+.list img:hover + * {
+  filter: brightness(.5);
+  transform: translateZ(150px) rotateY(40deg);
+}
+.list img:hover + * + * {
+  filter: brightness(.35);
+  transform: translateZ(75px) rotateY(25deg);
+}
+.list img:hover + * + * + * {
+  filter: brightness(.19);
+  transform: translateZ(35px) rotateY(15deg);
+}
+
+.list img:has(+ *:hover) {
+  filter: brightness(.5);
+  transform: translateZ(150px) rotateY(-40deg);  
+}
+.list img:has(+ * + *:hover) {
+  filter: brightness(.35);
+  transform: translateZ(75px) rotateY(-25deg);  
+}
+.list img:has(+ * + * + *:hover) {
+  filter: brightness(.19);
+  transform: translateZ(35px) rotateY(-15deg);  
+}
+
+
+
+.img-list img:not(:hover) {
+  filter: grayscale(1) blur(3px);
+}
+.img-list img:hover {
+  transform: scale(1.25);
+}
