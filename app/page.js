@@ -4,15 +4,20 @@ import ImageCard from './__components/ImageCard'
 import MouseTracker from './__components/MouseTracker'
 import AnimatedImageList from './__components/AnimatedImageList'
 import AnimatedImageList_02 from './__components/AnimatedImageList_02'
+import AnimatedImageSlider_02 from './__components/AnimatedImageSlider_02'
+import AnimatedScrollElements from './__components/AnimatedScrollElements'
 
 export default function page() {
   return (
-    <div className=''>
-      {/* <LoginPage />
-      <ImageCard />
-      // <MouseTracker /> */}
+    <div className='overflow-hidden'>
+      {/* <LoginPage /> */}
+      {/* <ImageCard /> */}
+      {/* <MouseTracker /> */}
       {/* <AnimatedImageList /> */}
-      <AnimatedImageList_02 />
+      {/* <AnimatedImageList_02 /> */}
+      {/* <AnimatedImageSlider_02 /> */}
+      {/* <AnimatedScrollElements /> */}
+      hello jack!
     </div>
   )
 }

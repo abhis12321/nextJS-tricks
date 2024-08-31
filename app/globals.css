@@ -1,31 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -59,7 +34,7 @@ body {
     width: calc(100% + 5px);
     background: conic-gradient(
       from var(--angle),
-      transparent 65%,
+      transparent 70%,
       red,
       violet,
       blue
@@ -84,7 +59,7 @@ body {
       --angle: 360deg;
     }
   }
-}
+} */
 
 * {
   margin: 0;
@@ -106,7 +81,7 @@ body {
 .list img {
   width: 120px;
   height: 180px;
-  transition: .7s;
+  transition: 0.7s;
   filter: brightness(0.03);
   border-radius: 10px;
   border: 1px solid red;
@@ -117,32 +92,30 @@ body {
   transform: translateZ(200px);
 }
 .list img:hover + * {
-  filter: brightness(.5);
+  filter: brightness(0.5);
   transform: translateZ(150px) rotateY(40deg);
 }
 .list img:hover + * + * {
-  filter: brightness(.35);
+  filter: brightness(0.35);
   transform: translateZ(75px) rotateY(25deg);
 }
 .list img:hover + * + * + * {
-  filter: brightness(.19);
+  filter: brightness(0.19);
   transform: translateZ(35px) rotateY(15deg);
 }
 
 .list img:has(+ *:hover) {
-  filter: brightness(.5);
-  transform: translateZ(150px) rotateY(-40deg);  
+  filter: brightness(0.5);
+  transform: translateZ(150px) rotateY(-40deg);
 }
 .list img:has(+ * + *:hover) {
-  filter: brightness(.35);
-  transform: translateZ(75px) rotateY(-25deg);  
+  filter: brightness(0.35);
+  transform: translateZ(75px) rotateY(-25deg);
 }
 .list img:has(+ * + * + *:hover) {
-  filter: brightness(.19);
-  transform: translateZ(35px) rotateY(-15deg);  
+  filter: brightness(0.19);
+  transform: translateZ(35px) rotateY(-15deg);
 }
-
-
 
 .img-list img:not(:hover) {
   filter: grayscale(1) blur(3px);
@@ -150,3 +123,112 @@ body {
 .img-list img:hover {
   transform: scale(1.25);
 }
+
+/* AnimatedImageSlider_02 */
+
+.slider_02 {
+  width: 100%;
+  min-width: calc(190px * --quantity);
+  overflow: hidden;
+}
+
+.slider_02 img {
+  animation: AutoSlider var(--time) linear infinite;
+  animation-delay: calc(
+    var(--time) / var(--quantity) * var(--index) - var(--time) + 1s
+  );
+}
+
+@keyframes AutoSlider {
+  to {
+    left: -100%;
+  }
+}
+
+/* Animated-Scroll-Effect --> */
+.scroll-cant {
+  padding: 2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-cant div {
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgb(3, 139, 94);
+}
+
+.scroll-cant .scrollEffectD2U {
+  animation: scrollEffectD2U;
+  animation-timeline: view(auto auto);
+}
+@keyframes scrollEffectD2U {
+  0%,
+  30% {
+    opacity: 0;
+    transform: scale(0.3) translateY(500px);
+    background-color: red;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+    background-color: blue;
+  }
+  /* 100% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-500px);
+    background-color: red;
+  } */
+}
+
+.scroll-cant .scrollEffectU2D {
+  animation: scrollEffectU2D;
+  animation-timeline: view(auto auto);
+}
+@keyframes scrollEffectU2D {
+  0%,
+  30% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-500px);
+    background-color: rgb(255, 0, 242);
+  }
+  50%,
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+    background-color: rgb(0, 255, 60);
+  }
+}
+
+.scroll-cant .scrollEffectL2R {
+  animation: scrollEffectL2R;
+  animation-timeline: view(auto auto);
+}
+@keyframes scrollEffectL2R {
+  0%,
+  20% {
+    opacity: 0;
+    transform: scaleX(0.3);
+    background-color: rgb(255, 0, 242);
+    box-shadow: 0 0 20px black;
+  }
+  45%,
+  80% {
+    opacity: 1;
+    transform: scaleX(1);
+    background-color: rgb(4, 66, 88);
+    box-shadow: 0 0 5px black;
+  } 100% {
+    opacity: 0;
+    transform: scaleX(0.3);
+    background-color: rgb(123, 5, 117);    
+    box-shadow: 0 0 20px black;
+  }
+}
+/* <--Animated-Scroll-Effect */
