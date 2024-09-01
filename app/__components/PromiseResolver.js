@@ -1,0 +1,1 @@
+export const PromiseResolver = async (ms) =>  new Promise(resolve => setTimeout(resolve , ms));
