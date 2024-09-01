@@ -1,4 +1,4 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
@@ -59,7 +59,7 @@
       --angle: 360deg;
     }
   }
-} */
+}
 
 * {
   margin: 0;
