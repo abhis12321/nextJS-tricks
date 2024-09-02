@@ -18,7 +18,8 @@ export default function page() {
       {/* <AnimatedImageList_02 /> */}
       {/* <AnimatedImageSlider_02 /> */}
       {/* <AnimatedScrollElements /> */}
-      <BlogPost />
+      {/* <BlogPost /> */}
+      Hello
     </div>
   )
 }
