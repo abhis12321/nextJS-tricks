@@ -4,6 +4,8 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
+export const runtime = 'nodejs';
+
 // Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -57,8 +59,8 @@ export async function POST(req) {
   }
 }
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
