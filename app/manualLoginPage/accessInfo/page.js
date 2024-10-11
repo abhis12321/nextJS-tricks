@@ -7,11 +7,10 @@ export default function page() {
     const { push } = useRouter();
     const [isAuthorized, setIsAuthorized] = useState(false);
 
-
     useEffect(() => {
         (async () => {
             const { username, error } = await getUser();
-            console.log(username, error);
+            // console.log(username, error);
 
             if (error) {
                 push('/manualLoginPage')
@@ -20,6 +19,7 @@ export default function page() {
             }
         })();
     }, []);
+
     return (
         <div className="h-[100vh] w-full flex items-center justify-center bg-gray-200">
             {

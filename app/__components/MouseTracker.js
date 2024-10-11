@@ -29,7 +29,7 @@ export default function MouseTracker() {
         alt="Trackable"
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setRotateX(0)}
-        className={`rotate-45 [transform-style:preserve-3d rounded-lg shadow-[0_2px_15px_black]`}
+        className={`cursor-pointer rotate-45 [transform-style:preserve-3d rounded-lg shadow-[0_2px_15px_black]`}
         height={500}
         width={500}
         style={{

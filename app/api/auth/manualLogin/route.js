@@ -42,7 +42,7 @@ export async function POST(req) {
             maxAge:MAX_AGE_JWT,
             path:"/"
         })
-        return  NextResponse.json({ message:"Authorized!" }, { status:200 , headers:{ "Set-Cookie":serialized }});
+        return  NextResponse.json({ message:"Authorized!" , username}, { status:200 , headers:{ "Set-Cookie":serialized }});
         // return new NextResponse(JSON.stringify({ message:"Authorized!" }, { status:200 , headers:{ "Set-Cookie":serialized }}))
     } catch(error) {
         return NextResponse.json({ message:"something went wrong!" } , { status:401 });
